@@ -1,12 +1,18 @@
-import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
-import IpfsRouter from "ipfs-react-router";
+import React, { useEffect } from "react";
+import { HashRouter, Route, Switch, Link, Redirect } from "react-router-dom";
+
 import "./App.css";
 
 export default function App() {
+  useEffect(() => {
+    if (window.location.hash) {
+      console.log("has hash:", window.location.hash);
+    }
+  }, []);
+
   return (
     <div className='App'>
-      <IpfsRouter>
+      <HashRouter>
         <div className='App-container'>
           <nav>
             <ul>
@@ -32,17 +38,20 @@ export default function App() {
             renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path='/about'>
+              {!window.location.hash && <Redirect to='/#/about' />}f
               <About />
             </Route>
             <Route exact path='/users'>
+              {!window.location.hash && <Redirect to='/#/users' />}f
               <Users />
             </Route>
             <Route exact path='/'>
+              {!window.location.hash && <Redirect to='/#/' />}f
               <Home />
             </Route>
           </Switch>
         </div>
-      </IpfsRouter>
+      </HashRouter>
     </div>
   );
 }
