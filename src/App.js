@@ -37,8 +37,8 @@ export default function App() {
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
           <Switch>
-            <Route exact path='/about'>
-              {!window.location.hash && <Redirect to='/about' />}f
+            <Route path='/about'>
+              {!window.location.hash && <Redirect to='/#/about/' />}
               <About />
             </Route>
             <Route exact path='/users'>
