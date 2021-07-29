@@ -38,15 +38,15 @@ export default function App() {
             renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path='/about'>
-              {!window.location.hash && <Redirect to='/#/about' />}f
+              {!window.location.hash && <Redirect to='/about' />}f
               <About />
             </Route>
             <Route exact path='/users'>
-              {!window.location.hash && <Redirect to='/#/users' />}f
+              {!window.location.hash && <Redirect to='/users' />}f
               <Users />
             </Route>
             <Route exact path='/'>
-              {!window.location.hash && <Redirect to='/#/' />}f
+              {!window.location.hash && <Redirect to='/' />}f
               <Home />
             </Route>
           </Switch>
